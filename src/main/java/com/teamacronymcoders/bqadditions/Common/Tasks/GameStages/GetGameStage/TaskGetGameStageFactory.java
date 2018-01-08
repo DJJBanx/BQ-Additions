@@ -1,4 +1,4 @@
-package com.teamacronymcoders.bqadditions.Common.Tasks.GameStages.GetGameStage;
+package com.teamacronymcoders.bqadditions.common.tasks.gamestages.getgamestage;
 
 import betterquesting.api.enums.EnumSaveType;
 import betterquesting.api.misc.IFactory;

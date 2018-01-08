@@ -1,4 +1,4 @@
-package com.teamacronymcoders.bqadditions.Utils;
+package com.teamacronymcoders.bqadditions.util;
 
 import com.teamacronymcoders.bqadditions.BQAdditions;
 import net.minecraftforge.common.config.Config;
@@ -17,8 +17,8 @@ public class BQAConfig {
         public static Modules modules;
 
         public static class Modules{
-            @Name("GameStages Compat")
-            @Comment("Enable GameStages Module?")
+            @Name("gamestages Compat")
+            @Comment("Enable gamestages Module?")
             public static boolean gameStages = true;
         }
     }

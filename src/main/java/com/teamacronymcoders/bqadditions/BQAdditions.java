@@ -1,17 +1,16 @@
 package com.teamacronymcoders.bqadditions;
 
 import betterquesting.questing.tasks.TaskRegistry;
-import com.teamacronymcoders.bqadditions.Common.Events.GetGameStages;
-import com.teamacronymcoders.bqadditions.Common.Tasks.GameStages.GetGameStage.TaskGetGameStageFactory;
-import com.teamacronymcoders.bqadditions.Utils.BQAConfig;
-import net.darkhax.gamestages.event.GameStageEvent;
-import net.minecraftforge.common.MinecraftForge;
+import com.teamacronymcoders.bqadditions.common.compats.GameStages;
+import com.teamacronymcoders.bqadditions.common.tasks.gamestages.getgamestage.TaskGetGameStageFactory;
+
+import com.teamacronymcoders.bqadditions.util.BQAConfig;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = BQAdditions.MODID,
@@ -36,7 +35,9 @@ public class BQAdditions
     public void preInit(FMLPreInitializationEvent event){
         logger = event.getModLog();
         BQAConfig.preInit(event);
-        TaskRegistry.INSTANCE.registerTask(new TaskGetGameStageFactory());
+        if (Loader.isModLoaded("gamestages")){
+            GameStages.setup();
+        }
     }
 
 

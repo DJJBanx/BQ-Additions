@@ -1,4 +1,4 @@
-package com.teamacronymcoders.bqadditions.Common;
+package com.teamacronymcoders.bqadditions.common;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

@@ -1,4 +1,4 @@
-package com.teamacronymcoders.bqadditions.Common.Tasks.GameStages.GetGameStage;
+package com.teamacronymcoders.bqadditions.common.tasks.gamestages.getgamestage;
 
 import betterquesting.api.client.gui.misc.IGuiEmbedded;
 import betterquesting.api.enums.EnumSaveType;
@@ -7,8 +7,6 @@ import betterquesting.api.questing.IQuest;
 import betterquesting.api.questing.tasks.ITask;
 import betterquesting.api.utils.JsonHelper;
 import com.google.gson.JsonObject;
-import net.darkhax.gamestages.GameStages;
-import net.darkhax.gamestages.capabilities.PlayerDataHandler;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -17,6 +15,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.UUID;
+
+import static net.darkhax.gamestages.capabilities.PlayerDataHandler.*;
 
 public class TaskGetGameStage implements ITask {
     private ArrayList<UUID> completeUsers = new ArrayList<UUID>();
@@ -29,7 +29,7 @@ public class TaskGetGameStage implements ITask {
 
     public void getGameStage(@Nonnull EntityPlayer player){
         if (!isComplete(player.getUniqueID())){
-            if (PlayerDataHandler.getStageData(player).hasUnlockedStage(targetGameStage)){
+            if (getStageData(player).hasUnlockedStage(targetGameStage)){
                 this.setComplete(player.getUniqueID());
             }
         }
