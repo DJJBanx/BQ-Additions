@@ -1,0 +1,91 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+        maven { url 'https://maven.mcmoddev.com/' }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+
+version = "1.0"
+group = "com.teamacronymcoders.bqadditions" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "bqadditions"
+sourceCompatibility = targetCompatibility = '1.8'
+
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = "1.12.2-14.23.1.2586"
+    runDir = "run"
+    mappings = "snapshot_20171003"
+}
+
+dependencies {
+    compile "net.darkhax.gamestages:GameStages-1.12.2:1.0.72"
+}
+
+task getLibs{
+    def libsFolder = new File('libs')
+    if (!libsFolder.isDirectory()) {
+        libsFolder.mkdirs()
+    }
+
+    def downloads = new ArrayList<Tuple>();
+    def bq = 'BetterQuesting-2.5.236.jar'
+    def bqSource = 'https://minecraft.curseforge.com/projects/better-questing/files/2504480/download'
+
+    downloads.add(new Tuple(bq, bqSource))
+
+
+    libsFolder.listFiles().each { file ->
+        def isInDownloadList = false;
+        downloads.each {download ->
+            if(file.name.equals(download.get(0).toString())) {
+                isInDownloadList = true;
+            }
+        }
+        if(!isInDownloadList || file.size() < 5) {
+            println "Deleting file " + file.name
+            file.delete();
+        }
+    }
+
+    downloads.each{download ->
+        def fileLocation = new File('libs', download.get(0).toString())
+        if(!fileLocation.exists())  {
+            def downloadString = download.get(1).toString()
+            if(downloadString.contains(" ")) {
+                downloadString = downloadString.replace(" ", "%20");
+            }
+            println "Downloading " + download.get(0).toString()
+            fileLocation.withOutputStream { out ->
+                new URL(downloadString).withInputStream { from ->
+                    out << from;
+                }
+            }
+        }
+    }
+}
+
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
