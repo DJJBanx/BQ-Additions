@@ -27,14 +27,12 @@ public class TaskGetGameStage implements ITask {
         return "bqadditions.task.getgamestage";
     }
 
-    public void getGameStage(@Nonnull EntityPlayer player, String gameStage){
+    public void getGameStage(@Nonnull EntityPlayer player){
         if (!isComplete(player.getUniqueID())){
-            if (gameStage.equalsIgnoreCase(targetGameStage)){
+            if (PlayerDataHandler.getStageData(player).hasUnlockedStage(targetGameStage)){
                 this.setComplete(player.getUniqueID());
             }
         }
-
-        PlayerDataHandler.getStageData(player);
     }
 
     @Override

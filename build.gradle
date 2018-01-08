@@ -34,6 +34,7 @@ repositories{
 
 dependencies {
     compile "net.darkhax.gamestages:GameStages-1.12.2:1.0.72"
+    compile "net.darkhax.bookshelf:Bookshelf-1.12.2:2.3.518"
 }
 
 task getLibs{
