@@ -44,7 +44,7 @@ task getLibs{
 
     def downloads = new ArrayList<Tuple>();
     def bq = 'BetterQuesting-2.5.236.jar'
-    def bqSource = 'https://minecraft.curseforge.com/projects/better-questing/files/2504480/download'
+    def bqSource = 'https://minecraft.curseforge.com/projects/better-questing/files/2504479/download'
 
     downloads.add(new Tuple(bq, bqSource))
 
