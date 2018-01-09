@@ -6,7 +6,7 @@ import com.google.gson.JsonObject;
 import com.teamacronymcoders.bqadditions.BQAdditions;
 import net.minecraft.util.ResourceLocation;
 
-public class TaskGetGameStageFactory implements IFactory<TaskGetGameStage>{
+public class TaskGetGameStageFactory implements IFactory<TaskGetGameStage> {
 
     @Override
     public ResourceLocation getRegistryName() {

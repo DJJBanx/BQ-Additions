@@ -13,7 +13,7 @@ import org.lwjgl.input.Keyboard;
 import java.awt.*;
 import java.io.IOException;
 
-public class GuiRunGameStageEditor extends GuiScreenThemed implements IVolatileScreen{
+public class GuiRunGameStageEditor extends GuiScreenThemed implements IVolatileScreen {
     TaskGetGameStage task;
     private GuiTextField nameField;
 
@@ -34,7 +34,7 @@ public class GuiRunGameStageEditor extends GuiScreenThemed implements IVolatileS
         this.nameField.setCanLoseFocus(false);
         this.nameField.setFocused(true);
         String txt = task.targetGameStage;
-        if(txt != null)
+        if (txt != null)
             nameField.setText(txt);
     }
 

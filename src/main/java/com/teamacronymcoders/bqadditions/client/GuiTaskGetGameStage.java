@@ -6,7 +6,7 @@ import betterquesting.client.themes.ThemeRegistry;
 import com.teamacronymcoders.bqadditions.common.tasks.gamestages.getgamestage.TaskGetGameStage;
 import net.minecraft.client.Minecraft;
 
-public class GuiTaskGetGameStage extends GuiElement implements IGuiEmbedded{
+public class GuiTaskGetGameStage extends GuiElement implements IGuiEmbedded {
 
     private Minecraft mc;
     private String targetGameStage;
@@ -15,7 +15,7 @@ public class GuiTaskGetGameStage extends GuiElement implements IGuiEmbedded{
     private int posY = 0;
     private int sizeX = 0;
 
-    public GuiTaskGetGameStage(TaskGetGameStage task, int posX, int posY, int sizeX, int sizeY){
+    public GuiTaskGetGameStage(TaskGetGameStage task, int posX, int posY, int sizeX, int sizeY) {
         this.mc = Minecraft.getMinecraft();
         this.targetGameStage = task.targetGameStage;
         this.posX = posX;
