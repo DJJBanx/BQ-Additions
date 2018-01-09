@@ -37,7 +37,7 @@ public class TaskGetGameStage implements ITask {
 
     @Override
     public void readFromJson(JsonObject json, EnumSaveType type) {
-        targetGameStage = JsonHelper.GetString(json, "name", "");
+        targetGameStage = JsonHelper.GetString(json, "name", "test");
     }
 
     @Override
