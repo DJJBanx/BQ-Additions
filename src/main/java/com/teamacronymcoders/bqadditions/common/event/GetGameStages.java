@@ -13,27 +13,27 @@ import java.util.Map;
 import java.util.UUID;
 
 public class GetGameStages {
-        @SubscribeEvent
-        public void onGameStageAdded (GameStageEvent.Added event){
-            EntityPlayer player = event.getPlayer();
+    @SubscribeEvent
+    public void onGameStageAdded(GameStageEvent.Added event) {
+        EntityPlayer player = event.getPlayer();
 
-            if (player == null)
-                return;
+        if (player == null)
+            return;
 
-            for (Map.Entry<TaskGetGameStage, IQuest> set : getGameStages(player.getUniqueID()).entrySet()) {
-                set.getKey().getGameStage(player);
-            }
+        for (Map.Entry<TaskGetGameStage, IQuest> set : getGameStages(player.getUniqueID()).entrySet()) {
+            set.getKey().getGameStage(player);
         }
+    }
 
-        HashMap<TaskGetGameStage, IQuest> getGameStages (UUID uuid){
-            HashMap<TaskGetGameStage, IQuest> map = new HashMap<TaskGetGameStage, IQuest>();
-            for (IQuest quest : QuestDatabase.INSTANCE.getAllValues()) {
-                for (ITask task : quest.getTasks().getAllValues()) {
-                    if (task instanceof TaskGetGameStage && !task.isComplete(uuid)) {
-                        map.put((TaskGetGameStage) task, quest);
-                    }
+    HashMap<TaskGetGameStage, IQuest> getGameStages(UUID uuid) {
+        HashMap<TaskGetGameStage, IQuest> map = new HashMap<TaskGetGameStage, IQuest>();
+        for (IQuest quest : QuestDatabase.INSTANCE.getAllValues()) {
+            for (ITask task : quest.getTasks().getAllValues()) {
+                if (task instanceof TaskGetGameStage && !task.isComplete(uuid)) {
+                    map.put((TaskGetGameStage) task, quest);
                 }
             }
-            return map;
         }
+        return map;
+    }
 }

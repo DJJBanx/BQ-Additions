@@ -1,7 +1,6 @@
 package com.teamacronymcoders.bqadditions;
 
 import com.teamacronymcoders.bqadditions.common.compats.GameStagesCompat;
-
 import com.teamacronymcoders.bqadditions.util.BQAConfig;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -17,8 +16,7 @@ import org.apache.logging.log4j.Logger;
      dependencies = BQAdditions.DEPS,
      acceptedMinecraftVersions = BQAdditions.MCVERS)
 
-public class BQAdditions
-{
+public class BQAdditions {
     public static final String MODID = "bqadditions";
     public static final String NAME = "BQ-Additions";
     public static final String VERSION = "1.0.0";
@@ -30,12 +28,12 @@ public class BQAdditions
     public static Logger logger;
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event){
+    public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         BQAConfig.preInit(event);
 
-        if (Loader.isModLoaded("gamestages")){
-            if (BQAConfig.BQAConfigs.Modules.GameStages){
+        if (Loader.isModLoaded("gamestages")) {
+            if (BQAConfig.BQAConfigs.Modules.GameStages) {
                 GameStagesCompat.setup();
             }
         }
@@ -48,7 +46,7 @@ public class BQAdditions
     }
 
     @EventHandler
-    public void postInit(FMLPostInitializationEvent event){
+    public void postInit(FMLPostInitializationEvent event) {
 
     }
 }

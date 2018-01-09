@@ -16,20 +16,20 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import static net.darkhax.gamestages.capabilities.PlayerDataHandler.*;
+import static net.darkhax.gamestages.capabilities.PlayerDataHandler.getStageData;
 
 public class TaskGetGameStage implements ITask {
     private ArrayList<UUID> completeUsers = new ArrayList<UUID>();
     public String targetGameStage = "test";
 
     @Override
-    public String getUnlocalisedName(){
+    public String getUnlocalisedName() {
         return "bqadditions.task.getgamestage";
     }
 
-    public void getGameStage(@Nonnull EntityPlayer player){
-        if (!isComplete(player.getUniqueID())){
-            if (getStageData(player).hasUnlockedStage(targetGameStage)){
+    public void getGameStage(@Nonnull EntityPlayer player) {
+        if (!isComplete(player.getUniqueID())) {
+            if (getStageData(player).hasUnlockedStage(targetGameStage)) {
                 this.setComplete(player.getUniqueID());
             }
         }
