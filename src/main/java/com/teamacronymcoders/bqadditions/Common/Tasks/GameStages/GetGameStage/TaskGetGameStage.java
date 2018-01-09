@@ -20,7 +20,7 @@ import static net.darkhax.gamestages.capabilities.PlayerDataHandler.*;
 
 public class TaskGetGameStage implements ITask {
     private ArrayList<UUID> completeUsers = new ArrayList<UUID>();
-    public String targetGameStage = "";
+    public String targetGameStage = "test";
 
     @Override
     public String getUnlocalisedName(){
