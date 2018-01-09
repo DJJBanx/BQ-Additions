@@ -5,7 +5,7 @@ import com.teamacronymcoders.bqadditions.common.event.GetGameStages;
 import com.teamacronymcoders.bqadditions.common.tasks.gamestages.getgamestage.TaskGetGameStageFactory;
 import net.minecraftforge.common.MinecraftForge;
 
-public class GameStages {
+public class GameStagesCompat {
 
     public static GetGameStages getGameStages;
 

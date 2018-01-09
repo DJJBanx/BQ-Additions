@@ -1,8 +1,6 @@
 package com.teamacronymcoders.bqadditions;
 
-import betterquesting.questing.tasks.TaskRegistry;
-import com.teamacronymcoders.bqadditions.common.compats.GameStages;
-import com.teamacronymcoders.bqadditions.common.tasks.gamestages.getgamestage.TaskGetGameStageFactory;
+import com.teamacronymcoders.bqadditions.common.compats.GameStagesCompat;
 
 import com.teamacronymcoders.bqadditions.util.BQAConfig;
 import net.minecraftforge.fml.common.Loader;
@@ -35,8 +33,11 @@ public class BQAdditions
     public void preInit(FMLPreInitializationEvent event){
         logger = event.getModLog();
         BQAConfig.preInit(event);
+
         if (Loader.isModLoaded("gamestages")){
-            GameStages.setup();
+            if (BQAConfig.BQAConfigs.Modules.GameStages){
+                GameStagesCompat.setup();
+            }
         }
     }
 

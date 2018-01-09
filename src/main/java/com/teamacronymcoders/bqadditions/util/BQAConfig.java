@@ -17,9 +17,8 @@ public class BQAConfig {
         public static Modules modules;
 
         public static class Modules{
-            @Name("gamestages Compat")
-            @Comment("Enable gamestages Module?")
-            public static boolean gameStages = true;
+            @Comment("Enable GameStages Module?")
+            public static boolean GameStages = true;
         }
     }
 }
